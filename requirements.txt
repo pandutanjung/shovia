@@ -1,0 +1,8 @@
+streamlit
+pandas
+apify-client
+joblib
+plotly
+matplotlib
+seaborn
+scikit-learn
