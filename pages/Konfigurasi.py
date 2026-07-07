@@ -3,6 +3,7 @@ import pandas as pd
 from apify_client import ApifyClient
 import re
 import joblib
+import os
 
 # ==========================================
 # KONFIGURASI HALAMAN
@@ -123,6 +124,8 @@ def light_clean_text(text):
 # ==========================================
 # 5. KLASIFIKASI SENTIMEN — NAIVE BAYES
 # ==========================================
+# Path relatif dari root folder project
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if 'df_to_classify' in st.session_state and not st.session_state['df_to_classify'].empty:
     st.divider()
     st.subheader("🤖 Klasifikasi Sentimen")
@@ -136,9 +139,8 @@ if 'df_to_classify' in st.session_state and not st.session_state['df_to_classify
 
         with st.spinner("Sedang mengklasifikasikan menggunakan Naive Bayes..."):
             try:
-                vectorizer_path = "E:\\shovia\\tfidf_vectorizer.pkl"
-                model_path = "E:\\shovia\\model_nb_deepseek_imbalanced.pkl"
-
+                vectorizer_path = os.path.join(BASE_DIR, "tfidf_vectorizer.pkl")
+                model_path = os.path.join(BASE_DIR, "model_nb_deepseek_imbalanced.pkl")
                 tfidf = joblib.load(vectorizer_path)
                 model_nb = joblib.load(model_path)
 
