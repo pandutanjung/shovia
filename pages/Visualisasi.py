@@ -30,13 +30,11 @@ df = st.session_state['df_final_classified'].copy()
 total_data = len(df)
 positif_count = len(df[df['sentimen'] == 'Positif'])
 negatif_count = len(df[df['sentimen'] == 'Negatif'])
-netral_count = len(df[df['sentimen'] == 'Netral'])
 
-col_m1, col_m2, col_m3, col_m4 = st.columns(4)
-col_m1.metric("Total Video dianalisis", total_data)
+col_m1, col_m2, col_m3 = st.columns(3)
+col_m1.metric("Total Video Dianalisis", total_data)
 col_m2.metric("Sentimen Positif", positif_count, delta=f"{(positif_count/total_data)*100:.1f}%", delta_color="normal")
 col_m3.metric("Sentimen Negatif", negatif_count, delta=f"{(negatif_count/total_data)*100:.1f}%", delta_color="inverse")
-col_m4.metric("Sentimen Netral", netral_count, delta=f"{(netral_count/total_data)*100:.1f}%", delta_color="off")
 st.divider()
 
 # ==========================================
