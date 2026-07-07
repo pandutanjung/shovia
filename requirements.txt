@@ -1,6 +1,6 @@
 streamlit
 pandas
-apify-clientapify-client==2.4.0
+apify-client==2.4.0
 joblib
 plotly
 matplotlib
