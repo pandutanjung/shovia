@@ -140,7 +140,7 @@ if 'df_to_classify' in st.session_state and not st.session_state['df_to_classify
         with st.spinner("Sedang mengklasifikasikan menggunakan Naive Bayes..."):
             try:
                 vectorizer_path = os.path.join(BASE_DIR, "tfidf_vectorizer.pkl")
-                model_path = os.path.join(BASE_DIR, "model_nb_deepseek_imbalanced.pkl")
+                model_path = os.path.join(BASE_DIR, "model_nb_deepseek_smote.pkl")
                 tfidf = joblib.load(vectorizer_path)
                 model_nb = joblib.load(model_path)
 
